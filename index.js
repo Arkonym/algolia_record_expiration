@@ -8,7 +8,7 @@ const algoliasearch = require('algoliasearch');
 /**
  * Developer - swap in whatever numeric fields you need
  * If you are using the firestore-native Algolia extension (deployed from Marketplace in GCP console),
- * any firstore timestamp fields will automatically be converted to Unix timestamp in milliseconds.
+ * any firestore timestamp fields will automatically be converted to Unix timestamp in milliseconds.
  **/
 const expirationFiltersFields = ['algoliaExpiration', 'expirationDate'];
 
