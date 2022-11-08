@@ -1,4 +1,10 @@
 const algoliasearch = require('algoliasearch');
+
+/**
+ * process.env.ALGOLIA_APP_ID and process.env.ALGOLIA_API_KEY must be set for this to work.
+ * Ensure the API key has listIndices and deleteObject ACLs set.
+**/
+
 /**
  * Developer - swap in whatever numeric fields you need
  * If you are using the firestore-native Algolia extension (deployed from Marketplace in GCP console),
@@ -7,12 +13,12 @@ const algoliasearch = require('algoliasearch');
 const expirationFiltersFields = ['algoliaExpiration', 'expirationDate'];
 
 /**
- * Configured for a GCP Pub/Sub trigger, intended for use with GCP Scheduler. Trigger can be swapped out to http if desired,
- * or just export the function without the firebase structure for general use.
+ * Function has been generalized for use in any system. 
+ * For use in GCP Firebase functions, recommended setup is with an HTTP or Pub/Sub trigger for scheduled jobs.
 **/
 module.exports.algoliaExpiredCleanup = async () => {
       console.log('starting algolia ticket index cleanup');
-      const client = algoliasearch(process.env.ALGOLIA_APP_ID, process.env.ALGOLIA_SEARCH_API_KEY);
+      const client = algoliasearch(process.env.ALGOLIA_APP_ID, process.env.ALGOLIA_API_KEY);
       const {items: indices} = await client.listIndices(); // destructure items into variable indices
       const nowUnix = Date.now(); // milliseconds
       const numericORFilterList = [];
