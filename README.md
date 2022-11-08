@@ -1,2 +1,8 @@
-algolia_record_expiration
-Simple Algolia index cleanup based on configurable expiration filters. Written for Firebase Functions, but simple enough to re-purpose.
+__algolia_record_expiration__
+
+Simple Algolia index cleanup based on configurable expiration filters.
+Runs native deleteBy on all indices available to the provided Application ID and API key.
+
+API key must have the following ACLs assigned:
+- listIndexes
+- deleteObject
