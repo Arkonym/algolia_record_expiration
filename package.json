@@ -1,0 +1,10 @@
+{
+  "name": "algolia_record_expiration",
+  "version": "1.0.0",
+  "description": "Simple index/record expiration function.",
+  "main": "index.js",
+  "dependencies": {
+    "algoliasearch": "^2.1.0",
+  },
+  "author": "Arkonym",
+}
